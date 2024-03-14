@@ -1,0 +1,28 @@
+//DESIGN CODE
+module encoder8to3(
+    input a,b,c,d,e,f,g,h,
+    output y0,y1,y2
+    );
+or(y0,a,c,e,g);
+or(y1,b,c,f,g);
+or(y2,d,e,f,g);
+endmodule
+
+
+
+//TEST BENCH
+module encoder8to3_tb;
+reg a,b,c,d,e,f,g,h;
+wire y0,y1,y2;
+encoder8to3 uut(.a(a),.b(b),.c(c),.d(d),.e(e),.f(f),.g(g),.h(h),.y0(y0),.y1(y1),.y2(y);
+initial begin
+a=1;b=0;c=0;d=0;e=0;f=0;g=0;h=0;#100;
+a=0;b=1;c=0;d=0;e=0;f=0;g=0;h=0;#100;
+a=0;b=0;c=1;d=0;e=0;f=0;g=0;h=0;#100;
+a=0;b=0;c=0;d=1;e=0;f=0;g=0;h=0;#100;
+a=0;b=0;c=0;d=0;e=1;f=0;g=0;h=0;#100;
+a=0;b=0;c=0;d=0;e=0;f=1;g=0;h=0;#100;
+a=0;b=0;c=0;d=0;e=0;f=0;g=1;h=0;#100;
+a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=1;#100;
+end
+endmodule
